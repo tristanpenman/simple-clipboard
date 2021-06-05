@@ -1,18 +1,18 @@
 # Simple Clipboard
 
-## Overview
+This is a very simple Ruby Gem that demonstrates how native extensions can be used to access the clipboard.
 
-This is a very minimalist Ruby Gem that demonstrates how native extensions can be used to access a user's clipboard.
+Powered by [libclipboard](https://github.com/jtanx/libclipboard).
 
 ## Dependencies
 
 ### Build tools
 
-You will need git, cmake, and an appropriate C++ compiler tool-chain (e.g. GCC) to install this gem.
+You will need git, cmake, and an appropriate C compiler tool-chain (e.g. GCC) to install this gem.
 
 ### libclipboard
 
-Assuming you have git, cmake, and a compatible C++ compiler tool-chain installed, you should be able to install libclipboard by following these steps:
+Assuming you have git, cmake, and a compatible C compiler tool-chain installed, you should be able to install [libclipboard](https://github.com/jtanx/libclipboard) by following these steps:
 
     git clone https://github.com/jtanx/libclipboard
     cd libclipboard
