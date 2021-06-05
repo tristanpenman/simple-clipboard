@@ -18,9 +18,13 @@ Assuming you have git, cmake, and a compatible C compiler tool-chain installed, 
     cd libclipboard
     mkdir build
     cd build
-    cmake ..
+    cmake -DCMAKE_INSTALL_PREFIX:PATH=. ..
     make -j4
-    sudo make install
+    make install
+
+This will 'install' libclipboard into `libclipboard/build/usr`. When you install the gem later, the library is statically linked, so there is no need to install it a system level.
+
+If you instead want to install libclipboard at the system level, use `cmake ..` instead of `cmake -DCMAKE_INSTALL_PREFIX:PATH=. ..`.
 
 ## Build
 
@@ -30,9 +34,21 @@ Building the gem should be as simple as:
 
 ## Installation
 
-Assuming that libclipboard has been installed, you will be able to install the gem:
+Assuming that libclipboard has been installed at the system level, you would normally be able to install the gem like so:
 
     gem install simple_clipboard-0.0.1.gem
+
+However if you followed the instructions above, you will need to include cflags and ldflags to tell the compiler where to find it:
+
+    gem install simple_clipboard-0.0.1.gem -- \
+        --with-cflags="-I<path-to-install>/include" \
+        --with-ldflags="-L<path-to-install>/lib"
+
+Just replace `<path-to-install>` with the absolute path to `libclipboard/build/usr`. For example, on my machine the command looks like:
+
+    gem install simple_clipboard-0.0.1.gem -- \
+        --with-cflags="-I/Users/Tristan/Code/libclipboard/build/usr/include" \
+        --with-ldflags="-L/Users/Tristan/Code/libclipboard/build/usr/lib"
 
 ## Usage
 
