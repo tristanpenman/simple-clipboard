@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
     'lib/simple_clipboard/version.rb'
   ]
 
-  s.add_development_dependency "rake", '~> 12.3'
+  s.add_development_dependency 'rake', '~> 13.0.3'
   s.add_development_dependency "rake-compiler", '~> 1.0'
   s.add_development_dependency 'rubocop', '~> 1.16.0'
   s.add_development_dependency 'rspec', '~> 3.10'
